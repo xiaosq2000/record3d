@@ -1,4 +1,4 @@
-# [*Record3D – Point Cloud Animation and Streaming*](https://record3d.app/): the accompanying library 
+# [*Record3D – Point Cloud Animation and Streaming*](https://record3d.app/): the accompanying library
 
 **2024/05/27 Update**: Added confidence map streaming (introduced breaking changes). **To be used with Record3D 1.10 and newer.**
 
@@ -8,28 +8,28 @@
 
 **2020/09/17 Update**: Introduced LiDAR support. To be used with Record3D 1.4 and newer.
 
-This project provides C++ and Python libraries for the [iOS Record3D app](https://record3d.app/) which allows you (among other features) to 
+This project provides C++ and Python libraries for the [iOS Record3D app](https://record3d.app/) which allows you (among other features) to
 live-stream RGB**D** video from iOS devices with TrueDepth camera to a computer via USB cable.
 
 ## Prerequisites
   - Install [CMake](https://cmake.org/download/) >= **3.13.0** and make sure it is in `PATH`.
   - When on macOS and Windows, install [iTunes](https://www.apple.com/itunes/).
   - When on Linux, install [`libusbmuxd`](https://launchpad.net/ubuntu/+source/libusbmuxd) (`sudo apt install libusbmuxd-dev`). It should be installed by default on Ubuntu.
-  
+
 ## Installing
 The libraries are multiplatform — macOS, Linux and Windows are supported.
 
 ### Python
 You can install either via `pip`:
-    
+
     python -m pip install record3d
 
 or build from source (run as admin/root):
-    
+
     git clone https://github.com/marek-simonik/record3d
     cd record3d
     python setup.py install
-    
+
 ### C++
 After running the following, you will find compiled static library in the `build` folder and header files in the `include` folder.
 
@@ -71,7 +71,7 @@ You can build the C++ demo app by running the following (press the record button
     cmake -DCMAKE_BUILD_TYPE=Release ..
     make -j8 demo
     ./demo
-    
+
 **Windows**
 
     git clone https://github.com/marek-simonik/record3d
