@@ -9,11 +9,11 @@ version = "0.1.0"
 postinstall = "python setup.py install"
 
 [dependencies]
-python = "3.11.*"
 cmake = "*"
-setuptools = "*"
 numpy = "*"
 opencv = "*"
+python = "3.11.*"
+setuptools = "*"
 
 [feature.ros-noetic]
 channels = ["robostack-noetic", "conda-forge"]
@@ -21,5 +21,21 @@ channels = ["robostack-noetic", "conda-forge"]
 [feature.ros-noetic.dependencies]
 ros-noetic-desktop = "*"
 
+[feature.ci.dependencies]
+mypy = ">=1.16.1,<2"
+pre-commit = ">=4.2.0,<5"
+ruff = ">=0.12.1,<0.13"
+taplo = ">=0.10.0,<0.11"
+
+[feature.ci.tasks]
+lint = "pre-commit run --all-files --hook-stage=manual"
+pre-commit-install = "pre-commit install --install-hooks"
+pre-commit-run = "pre-commit run --all-files"
+ruff-format = "ruff format --force-exclude"
+ruff-lint = "ruff check --fix --force-exclude --exit-non-zero-on-fix"
+toml-format = { cmd = "taplo fmt", env = { "RUST_LOG" = "warn" } }
+toml-lint = { cmd = "taplo lint", env = { "RUST_LOG" = "warn" } }
+
 [environments]
+ci = { features = ["ci"], no-default-feature = true }
 default = { features = ["ros-noetic"] }
