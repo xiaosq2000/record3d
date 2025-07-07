@@ -5,15 +5,15 @@ name = "record3d"
 platforms = ["linux-64"]
 version = "0.1.0"
 
-[tasks]
-postinstall = "python setup.py install"
-
 [dependencies]
 cmake = "<4"      # required by ros-noetic
 numpy = "<2"      # required by ros-noetic
 opencv = "4.10.*" # required by ros-noetic
 python = "3.11.*"
 setuptools = "*"
+
+[pypi-dependencies]
+record3d = { path = ".", editable = true }
 
 [feature.ros-noetic]
 channels = ["robostack-noetic", "conda-forge"]

@@ -2,6 +2,35 @@
 ._.DS_Store
 build*
 *.egg*
+
 # pixi environments
 .pixi
+
+# Build artifacts
+dist/
+*.so
+*.pyd
+*.dll
+_skbuild/
+*.egg-info/
+src/record3d.egg-info/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# LLM
 .aider*
+.cursor*

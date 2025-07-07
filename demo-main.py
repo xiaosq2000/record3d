@@ -2,6 +2,7 @@ from threading import Event
 
 import cv2
 import numpy as np
+
 from record3d import Record3DStream
 
 
@@ -49,7 +50,7 @@ class DemoApp:
             rgb = self.session.get_rgb_frame()
             confidence = self.session.get_confidence_frame()
             intrinsic_mat = self.get_intrinsic_mat_from_coeffs(self.session.get_intrinsic_mat())
-            camera_pose = (
+            camera_pose = (  # noqa: F841
                 self.session.get_camera_pose()
             )  # Quaternion + world position (accessible via camera_pose.[qx|qy|qz|qw|tx|ty|tz])
 

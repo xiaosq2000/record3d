@@ -1,3 +1,46 @@
 [build-system]
-build-backend = "setuptools.build_meta"
-requires = ["setuptools", "numpy"]
+backend-path = ["."]
+build-backend = "_custom_build"
+requires = ["setuptools>=61.0", "wheel", "cmake>=3.13", "numpy"]
+
+[project]
+authors = [{ name = "Marek Simonik", email = "admin@record3d.app" }]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = ["numpy"]
+description = "Accompanying library for the Record3D iOS app (https://record3d.app/). Allows you to receive RGBD stream from iOS devices with TrueDepth and/or LiDAR camera(s)."
+keywords = [
+    "record3d",
+    "iOS",
+    "TrueDepth",
+    "streaming",
+    "pointcloud",
+    "point",
+    "cloud",
+]
+license = { text = "LGPL-2.1" }
+name = "record3d"
+readme = "README.md"
+requires-python = ">=3.7"
+version = "1.4.1"
+
+[project.urls]
+Documentation = "https://record3d.app/"
+Homepage = "https://github.com/marek-simonik/record3d"
+Repository = "https://github.com/marek-simonik/record3d"
+
+[tool.setuptools]
+packages = ["record3d"]
+
+[tool.setuptools.package-data]
+record3d = ["*.so", "*.pyd", "*.dll"]
