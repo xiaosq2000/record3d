@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>record3d_ros</name>
+  <version>0.1.0</version>
+  <description>The record3d_ros package provides a ROS node to stream RGB-D data from a Record3D-enabled iOS device.</description>
+
+  <maintainer email="xiaosq2000@gmail.com">Shuqi XIAO</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+
+  <!-- Python dependencies -->
+  <exec_depend>record3d</exec_depend>
+  <exec_depend>numpy</exec_depend>
+</package>

@@ -9,9 +9,9 @@ version = "0.1.0"
 postinstall = "python setup.py install"
 
 [dependencies]
-cmake = "*"
-numpy = "*"
-opencv = "*"
+cmake = "<4"      # required by ros-noetic
+numpy = "<2"      # required by ros-noetic
+opencv = "4.10.*" # required by ros-noetic
 python = "3.11.*"
 setuptools = "*"
 
@@ -20,6 +20,9 @@ channels = ["robostack-noetic", "conda-forge"]
 
 [feature.ros-noetic.dependencies]
 ros-noetic-desktop = "*"
+
+[feature.ros-noetic.pypi-dependencies]
+catkin-tools = "*"
 
 [feature.ci.dependencies]
 mypy = ">=1.16.1,<2"
