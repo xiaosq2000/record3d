@@ -9,7 +9,7 @@
 namespace py = pybind11;
 
 
-PYBIND11_MODULE( record3d, m )
+PYBIND11_MODULE( _record3d, m )
 {
     m.doc() = "Python binding for the C++ library accompanying the Record3D iOS app (https://record3d.app/) which allows to stream RGBD frames.";
 

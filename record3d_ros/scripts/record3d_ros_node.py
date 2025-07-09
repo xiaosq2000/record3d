@@ -6,8 +6,9 @@ import cv2
 import rospy
 import tf2_ros
 from geometry_msgs.msg import TransformStamped
-from record3d import Record3DStream
 from sensor_msgs.msg import CameraInfo, Image
+
+from record3d import Record3DStream  # type: ignore[attr-defined]
 
 
 class Record3DRosPublisher:

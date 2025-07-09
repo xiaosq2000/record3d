@@ -4281,7 +4281,7 @@ packages:
 - pypi: ./
   name: record3d
   version: 1.4.1
-  sha256: 9b29e2c2cfaf261374c58d3c8eaca082768edac4dfc4401c0bdcdce704c987b0
+  sha256: 586ea53341f0ca4acff9fe2b78f510dbee2eaff66809aa9c043a4bda20b092f5
   requires_dist:
   - numpy
   requires_python: '>=3.7'

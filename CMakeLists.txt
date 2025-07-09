@@ -64,9 +64,9 @@ if(BUILD_PYTHON_BINDINGS)
     target_link_libraries(record3d_py lzfse usbmuxd)
 
     add_subdirectory(python-bindings/pybind11)
-    pybind11_add_module(record3d python-bindings/src/PythonBindings.cpp)
-    target_compile_definitions(record3d PRIVATE PYTHON_BINDINGS_BUILD)
-    target_link_libraries(record3d PRIVATE record3d_py)
+    pybind11_add_module(_record3d python-bindings/src/PythonBindings.cpp)
+    target_compile_definitions(_record3d PRIVATE PYTHON_BINDINGS_BUILD)
+    target_link_libraries(_record3d PRIVATE record3d_py)
 endif()
 
 

@@ -46,6 +46,12 @@ class CMakeBuild(build_ext):
 
     def build_extension(self, ext):
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
+        # For a module like record3d._record3d, we need to ensure it goes into the record3d directory
+        if "." in ext.name:
+            # Split the module name and create the proper directory structure
+            parts = ext.name.split(".")
+            extdir = os.path.join(extdir, *parts[:-1])
+
         cmake_args = [
             f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}",
             f"-DPYTHON_EXECUTABLE={sys.executable}",
@@ -74,7 +80,7 @@ class CMakeBuild(build_ext):
 
         subprocess.check_call(["cmake", ext.sourcedir] + cmake_args, cwd=self.build_temp, env=env)
         subprocess.check_call(
-            ["cmake", "--build", ".", "--target", "record3d"] + build_args, cwd=self.build_temp
+            ["cmake", "--build", ".", "--target", "_record3d"] + build_args, cwd=self.build_temp
         )
 
 
@@ -127,8 +133,10 @@ def _override_setup():
 
     def custom_setup(**kwargs):
         # Inject our CMake extension
-        kwargs["ext_modules"] = [CMakeExtension("record3d")]
+        kwargs["ext_modules"] = [CMakeExtension("record3d._record3d")]
         kwargs["cmdclass"] = {"build_ext": CMakeBuild}
+        kwargs["packages"] = ["record3d"]
+        kwargs["package_dir"] = {"": "."}
         return original_setup(**kwargs)
 
     setuptools.setup = custom_setup

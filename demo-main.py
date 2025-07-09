@@ -3,7 +3,7 @@ from threading import Event
 import cv2
 import numpy as np
 
-from record3d import Record3DStream
+from record3d import Record3DStream  # type: ignore[attr-defined]
 
 
 class DemoApp:
