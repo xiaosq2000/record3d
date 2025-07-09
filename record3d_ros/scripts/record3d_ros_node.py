@@ -22,10 +22,10 @@ class Record3DRosPublisher:
         self.map_frame_id = rospy.get_param("~map_frame_id", "map")
         self.camera_frame_id = rospy.get_param("~camera_frame_id", "camera_link")
 
-        rgb_topic = rospy.get_param("~rgb_topic", "/camera/color/image_raw")
+        rgb_topic = rospy.get_param("~rgb_topic", "/camera/rgb/image_raw")
         depth_topic = rospy.get_param("~depth_topic", "/camera/depth/image_raw")
         confidence_topic = rospy.get_param("~confidence_topic", "/camera/confidence/image_raw")
-        cam_info_topic = rospy.get_param("~camera_info_topic", "/camera/color/camera_info")
+        cam_info_topic = rospy.get_param("~camera_info_topic", "/camera/rgb/camera_info")
 
         # Setup publishers
         self.rgb_pub = rospy.Publisher(rgb_topic, Image, queue_size=10)
