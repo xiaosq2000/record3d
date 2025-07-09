@@ -42,7 +42,7 @@ class Record3DRosPublisher:
 
     def on_new_frame(self):
         """Called from a non-main thread when a new frame is available."""
-        rospy.loginfo("New frame event triggered.")
+        # rospy.logdebug("New frame event triggered.")
         self.event.set()
 
     def on_stream_stopped(self):
